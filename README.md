@@ -9,6 +9,7 @@ Features available to veryone (no login needed)
   * All toilets near you render onto page
   * Ability to filter maps 
   * Option to login or signup
+  
 Features available only if logged in
   * Ability to add a new toilet
   * Ability to haved saved preferences and preloaded filters 
