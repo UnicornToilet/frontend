@@ -6,9 +6,7 @@
   "scripts": {
     "test": "jest -i --verbose",
     "watch": "webpack-dev-server --inline --hot",
-    "build": "webpack",
-    "start":
-
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
