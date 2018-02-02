@@ -6,8 +6,20 @@
   "scripts": {
     "test": "jest -i --verbose",
     "watch": "webpack-dev-server --inline --hot",
-    "build": "webpack"
+    "build": "webpack",
+    "heroku-postbuild": "webpack",
+    "start": "node index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnicornToilet/frontend.git"
+  },
+  "author": "Ashkaan Jaberi, Joel Epstein, Kyle Richey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UnicornToilet/frontend/issues"
+  },
+  "homepage": "https://github.com/UnicornToilet/frontend#readme",
   "jest": {
     "setupFiles": [
       "<rootDir>/src/__test__/shim.js",
@@ -18,8 +30,6 @@
     }
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
