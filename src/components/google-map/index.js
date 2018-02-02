@@ -3,13 +3,12 @@ import {Map, GoogleApiWrapper} from 'google-maps-react'
 
 class MapContainer extends React.Component {
   render() {
-    console.log(__API_URL__);
     return(
-      <h1> map shit </h1>
+      <Map google={this.props.googe} zoom={14}/>
     )
   }
 };
 
 export default GoogleApiWrapper({
-  apiKey: process.env.GOOGLE_KEY
+  apiKey: __GOOGLE_KEY__,
 })(MapContainer);
