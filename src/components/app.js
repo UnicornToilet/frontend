@@ -5,12 +5,9 @@ import {Route} from 'react-router-dom'
 
 import Header from './header'
 import Footer from './footer'
-import Navbar from './navbar'
-import Home from './home'
-import Profile from './profile'
+import Map from '../components/google-map'
 
 class App extends React.Component {
-
     constructor(props) {
         super(props);
     }
@@ -21,12 +18,7 @@ class App extends React.Component {
 
                 <Header appTitle="React App" />
 
-                <Navbar />
-
-                <main>
-                    <Route exact path='/' component={Home} />
-                    <Route path='/profile' component={Profile} />
-                </main>
+                <Map />
 
                 <Footer>
                     <p>&copy;2017 401n4</p>
