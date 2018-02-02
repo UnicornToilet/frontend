@@ -8,7 +8,6 @@ import Footer from './footer'
 import Navbar from './navbar'
 import Home from './home'
 import Profile from './profile'
-import Todo from './todo/todo-container'
 
 class App extends React.Component {
 
@@ -26,7 +25,6 @@ class App extends React.Component {
 
                 <main>
                     <Route exact path='/' component={Home} />
-                    <Route exact path='/todo' component={Todo} />
                     <Route path='/profile' component={Profile} />
                 </main>
 
