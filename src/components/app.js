@@ -9,6 +9,7 @@ import * as toilets from './google-map/actions'
 import Header from './header'
 import Footer from './footer'
 import Map from '../components/google-map/map.js'
+import FilterForm from '../components/google-map/filter-form.js'
 
 class App extends React.Component {
     constructor(props) {
@@ -20,6 +21,8 @@ class App extends React.Component {
             <React.Fragment>
 
                 <Header appTitle="Unicorn Toilet" />
+
+                <FilterForm />
 
                 <Map 
                     initMap = {this.props.initMap}
