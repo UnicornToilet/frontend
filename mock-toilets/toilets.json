@@ -38,7 +38,7 @@
     },
     {
       "locationName":"Plaza Garibaldi",
-      "location":{"lat":47.6194272,"lng":122.3578005},
+      "location":{"lat":47.6194272,"lng":-122.3578005},
       "overallQuality":"3",
       "tpQuality":"2",
       "usage":"Pay",

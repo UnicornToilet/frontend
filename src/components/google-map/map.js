@@ -44,40 +44,31 @@ class MapContainer extends React.Component {
       });
     }
 
-
-
   render() {
-
     const style = {
       width: '100%',
       height: '60%',
       margin: '5em 0'
     }
 
-    const codeFellows = {
-      lat: 47.6182477,
-      lng: -122.35406
-    }
-    
     return(
       <div className='map-container'>
         <Map 
           onClick={this.handleMapClick}
           onReady={this.props.initMap}
           google={this.props.google}
-          initialCenter={codeFellows}
+          initialCenter={{lat: 47.6182477, lng: -122.35406}}
           style={style}
           zoom={14}
         >
-
-        {this.loadMarkers()}
 
         <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}>
               <p> {this.state.selectedPlace.name} </p>
-          </InfoWindow>
+        </InfoWindow>
 
+        {this.loadMarkers()}
 
         </Map>
 
