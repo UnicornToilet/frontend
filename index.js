@@ -10,6 +10,6 @@ app.use(morgan('common'));
 app.use(express.static(`${__dirname}/build`));
 app.use('*', (req,res) => res.send(`${__dirname}/build/index.html`));
 
-app.listen(PORT, () => {
-    console.log("Server up on port", PORT);
+app.listen(process.env.PORT, () => {
+    console.log("Server up on port", process.env.PORT);
 });
