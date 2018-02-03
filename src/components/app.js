@@ -13,12 +13,6 @@ import Map from '../components/google-map/map.js'
 class App extends React.Component {
     constructor(props) {
         super(props);
-
-    this.loadMarkers = this.loadMarkers.bind(this);
-    }
-
-    loadMarkers() {
-        
     }
 
     render() {
@@ -29,6 +23,7 @@ class App extends React.Component {
 
                 <Map 
                     initMap = {this.props.initMap}
+                    toilets = {this.props.toilets}
                 />
 
             </React.Fragment>

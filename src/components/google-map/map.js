@@ -1,20 +1,22 @@
 import React from 'react'
-import {Map, GoogleApiWrapper, InfoWindow} from 'google-maps-react'
+import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react'
 
 class MapContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.fetchToilets = this.fetchToilets.bind(this);
+    this.loadMarkers = this.loadMarkers.bind(this);
   }
 
-  componentDidUpdate() {
-    console.log('__STATE__', this.state);
-  }
+    loadMarkers() {
+      return Object.keys(this.props.toilets).map((toilet,i) => (
+        <Marker
+          position={this.props.toilets[toilet].location}
+          key={i}
+        />
+      ))
+    }
 
-  fetchToilets() {
-    this.props.initMap();
-  }
 
   render() {
 
@@ -28,16 +30,24 @@ class MapContainer extends React.Component {
       lat: 47.6182477,
       lng: -122.35406
     }
-
+    
     return(
       <div className='map-container'>
         <Map 
-          onReady={this.fetchToilets}
+          onReady={this.props.initMap}
           google={this.props.google}
           initialCenter={codeFellows}
           style={style}
           zoom={14}
+        >
+
+        <Marker
+          position={codeFellows}
         />
+
+        {this.loadMarkers()}
+        
+      </Map>
       </div>
     )
   }

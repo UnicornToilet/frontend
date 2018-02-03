@@ -2,7 +2,7 @@
   "toilets": [
     {
       "locationName":"Sport Restaurant & Bar",
-      "location":"140 4th Ave N #130, Seattle, WA 98109",
+      "location":{"lat":47.6195864,"lng":-122.3508848},
       "overallQuality":"3",
       "tpQuality":"2",
       "usage":"Pay",
@@ -14,7 +14,7 @@
     },
     {
       "locationName":"Armory @ Seattle Center",
-      "location":"305 Harrison St, Seattle, WA 98109",
+      "location":{"lat":47.6222869,"lng":-122.3543579},
       "overallQuality":"4",
       "tpQuality":"2",
       "usage":"Free",
@@ -38,37 +38,13 @@
     },
     {
       "locationName":"Plaza Garibaldi",
-      "location":"129 1st Ave N, Seattle, WA 98109",
+      "location":{"lat":47.6194272,"lng":122.3578005},
       "overallQuality":"3",
       "tpQuality":"2",
       "usage":"Pay",
       "occupancy":"",
       "genderNeutral":"",
       "soap":"Gel",
-      "drying":"Paper Towel",
-      "comments":""
-    },
-    {
-      "locationName":"Code Fellows",
-      "location":"2901 3rd Ave #300, Seattle, WA 98121",
-      "overallQuality":"4",
-      "tpQuality":"3",
-      "usage":"Free",
-      "occupancy":"Multiple",
-      "genderNeutral":"No",
-      "soap":"Foam",
-      "drying":"Paper Towel",
-      "comments":""
-    },
-    {
-      "locationName":"Subway",
-      "location":"2822 Western Ave, Seattle, WA 98121",
-      "overallQuality":"3",
-      "tpQuality":"2",
-      "usage":"Pay",
-      "occupancy":"",
-      "genderNeutral":"",
-      "soap":"Foam",
       "drying":"Paper Towel",
       "comments":""
     }
