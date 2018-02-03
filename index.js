@@ -1,6 +1,8 @@
 let express = require('express');
 let morgan = require('morgan');
 
+let PORT = 8080;
+
 let app = express();
 
 app.use(morgan('common'));

@@ -1,6 +1,6 @@
 {
   "name": "unicorn-toilet",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,9 @@
       "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
     }
   },
+  "engines": {
+    "node": "6.11.3"
+  },
   "keywords": [],
   "dependencies": {
     "babel-core": "^6.26.0",
@@ -39,6 +42,8 @@
     "css-loader": "^0.28.7",
     "dotenv": "^4.0.0",
     "enzyme-adapter-react-16": "^1.1.0",
+    "eslint": "^4.17.0",
+    "eslint-plugin-react": "^7.6.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "google-maps-react": "^1.1.2",
     "html-webpack-plugin": "^2.30.1",
