@@ -13,6 +13,12 @@ import Map from '../components/google-map/map.js'
 class App extends React.Component {
     constructor(props) {
         super(props);
+
+    this.loadMarkers = this.loadMarkers.bind(this);
+    }
+
+    loadMarkers() {
+        
     }
 
     render() {
