@@ -37,7 +37,6 @@ class MapContainer extends React.Component {
     }
 
     handleMarkerClick(props, marker, e) {
-      console.log('click')
       this.setState({
         selectedPlace: props,
         activeMarker: marker,
@@ -63,7 +62,7 @@ class MapContainer extends React.Component {
     return(
       <div className='map-container'>
         <Map 
-          onClick={this.props.handleMapClick}
+          onClick={this.handleMapClick}
           onReady={this.props.initMap}
           google={this.props.google}
           initialCenter={codeFellows}
