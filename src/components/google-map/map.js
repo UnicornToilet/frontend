@@ -8,10 +8,16 @@ class MapContainer extends React.Component {
     this.fetchToilets = this.fetchToilets.bind(this);
   }
 
+  componentDidUpdate() {
+    console.log('__STATE__', this.state);
+  }
+
   fetchToilets() {
+    this.props.initMap();
   }
 
   render() {
+
     const style = {
       width: '100%',
       height: '60%',
