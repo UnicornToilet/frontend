@@ -1,0 +1,52 @@
+{
+  "toilets": [
+    {
+      "locationName":"Sport Restaurant & Bar",
+      "location":{"lat":47.6195864,"lng":-122.3508848},
+      "overallQuality":"3",
+      "tpQuality":"2",
+      "usage":"Pay",
+      "occupancy":"",
+      "genderNeutral":"",
+      "soap":"Gel",
+      "drying":"Paper Towel & Air Dry",
+      "comments":""
+    },
+    {
+      "locationName":"Armory @ Seattle Center",
+      "location":{"lat":47.6222869,"lng":-122.3543579},
+      "overallQuality":"4",
+      "tpQuality":"2",
+      "usage":"Free",
+      "occupancy":"",
+      "genderNeutral":"",
+      "soap":"Gel",
+      "drying":"Paper Towel",
+      "comments":""
+    },
+    {
+      "locationName":"Sketch Porter Potty",
+      "location":{"lat":47.620699,"lng":-122.353726},
+      "overallQuality":"1",
+      "tpQuality":"1",
+      "usage":"Free",
+      "occupancy":"Single",
+      "genderNeutral":"Yes",
+      "soap":"None",
+      "drying":"None",
+      "comments":"It's a porta potty..."
+    },
+    {
+      "locationName":"Plaza Garibaldi",
+      "location":{"lat":47.6194272,"lng":-122.3578005},
+      "overallQuality":"3",
+      "tpQuality":"2",
+      "usage":"Pay",
+      "occupancy":"",
+      "genderNeutral":"",
+      "soap":"Gel",
+      "drying":"Paper Towel",
+      "comments":""
+    }
+  ]
+}

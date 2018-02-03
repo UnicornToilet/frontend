@@ -23,6 +23,7 @@ let plugins = [
         '__GOOGLE_CLIENT_SECRET__': JSON.stringify(process.env.GOOGLE_CLIENT_SECRET),
         '__AUTH_URL__': JSON.stringify(process.env.AUTH_URL),
         '__API_URL__': JSON.stringify(process.env.API_URL),
+        '__GOOGLE_KEY__': JSON.stringify(process.env.GOOGLE_KEY),
         '__DEBUG__': JSON.stringify(! production)
     })
 ];

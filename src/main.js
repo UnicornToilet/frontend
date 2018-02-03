@@ -14,7 +14,6 @@ class Main extends React.Component {
 
     constructor(props) {
         super(props);
-        if ( __DEBUG__ ) { store.subscribe( ()=>console.log(store.getState()) ); }
     }
 
     render() {
