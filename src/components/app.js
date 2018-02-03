@@ -5,7 +5,7 @@ import {Route} from 'react-router-dom'
 
 import Header from './header'
 import Footer from './footer'
-import Map from '../components/google-map'
+import Map from '../components/google-map/map.js'
 
 class App extends React.Component {
     constructor(props) {
@@ -16,13 +16,9 @@ class App extends React.Component {
         return (
             <React.Fragment>
 
-                <Header appTitle="React App" />
+                <Header appTitle="Unicorn Toilet" />
 
                 <Map />
-
-                <Footer>
-                    <p>&copy;2017 401n4</p>
-                </Footer>
 
             </React.Fragment>
         )

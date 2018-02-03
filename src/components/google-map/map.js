@@ -1,7 +1,16 @@
 import React from 'react'
-import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react'
+import {Map, GoogleApiWrapper, InfoWindow} from 'google-maps-react'
 
 class MapContainer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.fetchToilets = this.fetchToilets.bind(this);
+  }
+
+  fetchToilets() {
+  }
+
   render() {
     const style = {
       width: '100%',
@@ -17,6 +26,7 @@ class MapContainer extends React.Component {
     return(
       <div className='map-container'>
         <Map 
+          onReady={this.fetchToilets}
           google={this.props.google}
           initialCenter={codeFellows}
           style={style}
