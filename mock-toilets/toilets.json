@@ -1,0 +1,76 @@
+{
+  "toilets": [
+    {
+      "locationName":"Sport Restaurant & Bar",
+      "location":"140 4th Ave N #130, Seattle, WA 98109",
+      "overallQuality":"3",
+      "tpQuality":"2",
+      "usage":"Pay",
+      "occupancy":"",
+      "genderNeutral":"",
+      "soap":"Gel",
+      "drying":"Paper Towel & Air Dry",
+      "comments":""
+    },
+    {
+      "locationName":"Armory @ Seattle Center",
+      "location":"305 Harrison St, Seattle, WA 98109",
+      "overallQuality":"4",
+      "tpQuality":"2",
+      "usage":"Free",
+      "occupancy":"",
+      "genderNeutral":"",
+      "soap":"Gel",
+      "drying":"Paper Towel",
+      "comments":""
+    },
+    {
+      "locationName":"Sketch Porter Potty",
+      "location":{"lat":47.620699,"lng":-122.353726},
+      "overallQuality":"1",
+      "tpQuality":"1",
+      "usage":"Free",
+      "occupancy":"Single",
+      "genderNeutral":"Yes",
+      "soap":"None",
+      "drying":"None",
+      "comments":"It's a porta potty..."
+    },
+    {
+      "locationName":"Plaza Garibaldi",
+      "location":"129 1st Ave N, Seattle, WA 98109",
+      "overallQuality":"3",
+      "tpQuality":"2",
+      "usage":"Pay",
+      "occupancy":"",
+      "genderNeutral":"",
+      "soap":"Gel",
+      "drying":"Paper Towel",
+      "comments":""
+    },
+    {
+      "locationName":"Code Fellows",
+      "location":"2901 3rd Ave #300, Seattle, WA 98121",
+      "overallQuality":"4",
+      "tpQuality":"3",
+      "usage":"Free",
+      "occupancy":"Multiple",
+      "genderNeutral":"No",
+      "soap":"Foam",
+      "drying":"Paper Towel",
+      "comments":""
+    },
+    {
+      "locationName":"Subway",
+      "location":"2822 Western Ave, Seattle, WA 98121",
+      "overallQuality":"3",
+      "tpQuality":"2",
+      "usage":"Pay",
+      "occupancy":"",
+      "genderNeutral":"",
+      "soap":"Foam",
+      "drying":"Paper Towel",
+      "comments":""
+    }
+  ]
+}

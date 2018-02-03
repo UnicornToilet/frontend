@@ -21,7 +21,8 @@ let plugins = [
     new DefinePlugin({
         '__AUTH_URL__': JSON.stringify(process.env.AUTH_URL),
         '__API_URL__': JSON.stringify(process.env.API_URL),
-        '__GOOGLE_TOKEN_': JSON.stringify(process.env.GOOGLE_KEY),
+        '__GOOGLE_KEY__': JSON.stringify(process.env.GOOGLE_KEY),
+        '__GOOGLE_KEY2__': JSON.stringify(process.env.GOOGLE_KEY2),
         '__DEBUG__': JSON.stringify(! production)
     })
 ];
