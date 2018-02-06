@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import {filterToilets} from './actions'
 
 const emptyState = {
   overallQuality: null,
@@ -29,6 +31,7 @@ class FilterForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     console.log(this.state);
+    this.props.filter(this.state);
   }
 
   render(){
@@ -114,4 +117,13 @@ class FilterForm extends React.Component {
   }
 }
 
-export default FilterForm
+let mapStateToProps = (state) => ({
+  toilets: state.toilets,
+})
+
+let mapDispatchToProps = (dispatch) => ({
+  filter: (toilets) => dispatch(filterToilets(toilets)),
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterForm);
