@@ -6,9 +6,9 @@ export const getToilets = () => dispatch => {
   superagent.get(mockAPI)
     .then(res => dispatch(initAction(res.body)))
     .catch(console.error);
-}
+};
 
 const initAction = (toilets) => ({
   type: 'INIT',
-  payload: toilets
-})
+  payload: toilets,
+});
