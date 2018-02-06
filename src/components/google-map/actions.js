@@ -8,9 +8,10 @@ export const getToilets = () => dispatch => {
     .catch(console.error);
 }
 
-export const filterToilets = (toilets) => dispatch => {
-  console.log(toilets);
-};
+export const filterToilets = (preferences) => dispatch => ({
+  type: 'FETCH',
+  payload: preferences,  
+});
 
 const initAction = (toilets) => ({
   type: 'INIT',

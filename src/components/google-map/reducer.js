@@ -5,6 +5,10 @@ export default (state=initialState, {type,payload}) => {
     case 'INIT':
       return payload;
 
+    case 'FETCH':
+      console.log(payload);
+      return state;
+
     default:
       return state;
   }
