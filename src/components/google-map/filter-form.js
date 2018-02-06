@@ -34,8 +34,22 @@ class FilterForm extends React.Component {
     return (
       <form className='filter-form'>
         <h2> Overall Quality </h2>
-        <input type='radio' id='overallQuality' name='overallQuality'/>
-        <label for='overallQuality'> 1 </label>
+          <input type='radio' id='overallQuality1' name='overallQuality' value='1'/>
+          <label htmlFor='overallQuality1'> 1 </label>
+
+          <input type='radio' id='overallQuality2' name='overallQuality' value='2'/>
+          <label htmlFor='overallQuality2'> 2 </label>
+
+          <input type='radio' id='overallQuality3' name='overallQuality' value='3'/>
+          <label htmlFor='overallQuality3'> 3 </label>
+
+          <input type='radio' id='overallQuality4' name='overallQuality' value='4'/>
+          <label htmlFor='overallQuality4'> 4 </label>
+
+          <input type='radio' id='overallQuality5' name='overallQuality' value='5'/>
+          <label htmlFor='overallQuality5'> 5 </label>
+
+      <button type='submit'> submit </button>
       </form>
     )
   }
