@@ -1,14 +1,15 @@
 import '../style/main.scss';
 
 import React from 'react';
-import {Route} from 'react-router-dom'
-import {connect} from 'react-redux'
+import {Route} from 'react-router-dom';
+import {connect} from 'react-redux';
 
-import * as toilets from './google-map/actions'
+import * as toilets from './google-map/actions';
 
-import Header from './header'
-import Footer from './footer'
-import Map from '../components/google-map/map.js'
+import Header from './header';
+import Footer from './footer';
+import Map from '../components/google-map/map.js';
+import AddToilet from '../components/google-map/add-toilet.js';
 
 class App extends React.Component {
     constructor(props) {
@@ -21,10 +22,12 @@ class App extends React.Component {
 
                 <Header appTitle="Unicorn Toilet" />
 
-                <Map 
+                <Map
                     initMap = {this.props.initMap}
                     toilets = {this.props.toilets}
                 />
+
+                <AddToilet />
 
             </React.Fragment>
         )
@@ -35,9 +38,9 @@ class App extends React.Component {
 let mapStateToProps = (state) => ({
     toilets: state.toilets,
   })
-  
+
   let mapDispatchToProps = (dispatch) => ({
     initMap: () => dispatch(toilets.getToilets()),
   })
-  
+
   export default connect(mapStateToProps, mapDispatchToProps)(App)
