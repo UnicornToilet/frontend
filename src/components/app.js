@@ -27,9 +27,9 @@ class App extends React.Component {
                     toilets = {this.props.toilets}
                 />
 
-                <AddToilet />
-
             </React.Fragment>
+
+            <AddToilet />
         )
     }
 }
