@@ -22,7 +22,7 @@ class App extends React.Component {
 
                 <main>
                     <Route exact path='/' component={Map} />
-                    <Route exact path='/filter' component={FilterForm} />>
+                    <Route exact path='/filter' component={FilterForm} />
                 </main>
 
             </React.Fragment>
