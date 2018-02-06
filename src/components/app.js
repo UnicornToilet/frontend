@@ -1,10 +1,8 @@
 import '../style/main.scss';
 
 import React from 'react';
-import {Route} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
-
-import * as toilets from './google-map/actions'
 
 import Header from './header'
 import Footer from './footer'
@@ -22,25 +20,14 @@ class App extends React.Component {
 
                 <Header appTitle="Unicorn Toilet" />
 
-                <FilterForm />
-
-                <Map 
-                    initMap = {this.props.initMap}
-                    toilets = {this.props.toilets}
-                />
+                <main>
+                    <Route exact path='/' component={Map} />
+                    <Route exact path='/filter' component={FilterForm} />>
+                </main>
 
             </React.Fragment>
         )
     }
 }
 
-
-let mapStateToProps = (state) => ({
-    toilets: state.toilets,
-  })
-  
-  let mapDispatchToProps = (dispatch) => ({
-    initMap: () => dispatch(toilets.getToilets()),
-  })
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App;
