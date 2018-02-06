@@ -70,7 +70,42 @@ class FilterForm extends React.Component {
 
           <br/>
 
-          
+          <h2> Occupancy </h2>
+          <input type='radio' id='single' name='occupancy' value='single' onChange={this.handleChange}/>
+          <label htmlFor='single'> single </label>
+
+          <input type='radio' id='multiple' name='occupancy' value='multiple' onChange={this.handleChange}/>
+          <label htmlFor='multiple'> multiple </label>          
+
+          <br/>
+
+          <h2> Soap Type </h2>
+          <input type='radio' id='gel' name='soap' value='gel' onChange={this.handleChange}/>
+          <label htmlFor='gel'> gel </label>
+
+          <input type='radio' id='foam' name='soap' value='foam' onChange={this.handleChange}/>
+          <label htmlFor='foam'> foam </label>          
+
+          <br/>
+
+          <h2> Drying Method </h2>
+          <input type='radio' id='paperTowel' name='drying' value='paper towel' onChange={this.handleChange}/>
+          <label htmlFor='paperTowel'> Paper Towel </label>
+
+          <input type='radio' id='airDry' name='drying' value='air dry' onChange={this.handleChange}/>
+          <label htmlFor='airDry'> Air Dry </label>          
+
+          <input type='radio' id='both' name='drying' value='both' onChange={this.handleChange}/>
+          <label htmlFor='both'> Both </label>          
+
+          <br/>
+
+          <h2> Baby Changing Station </h2>
+          <input type='radio' id='yes' name='babyChanging' value='yes' onChange={this.handleChange}/>
+          <label htmlFor='yes'> yes </label>
+
+          <input type='radio' id='no' name='babyChanging' value='no' onChange={this.handleChange}/>
+          <label htmlFor='no'> no </label>          
         
           <br/>
       <button type='submit'> submit </button>
