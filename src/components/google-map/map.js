@@ -109,3 +109,8 @@ let mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleApiWrapper({
   apiKey: __GOOGLE_KEY__,
 })(MapContainer));
+
+
+
+// take state and dispatch outta the filterform. pass it in. form submit should hide the form / show map again
+// pull in Kyle's form 
