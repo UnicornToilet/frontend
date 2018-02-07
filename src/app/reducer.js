@@ -5,6 +5,6 @@ import toiletReducer from '../components/google-map/reducer';
 
 
 export default combineReducers({
-    toilets: toiletReducer,
-    auth: authReducer
-})
+  toilets: toiletReducer,
+  auth: authReducer,
+});
