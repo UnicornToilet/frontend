@@ -5,8 +5,7 @@ export default (state=initialState, {type,payload}) => {
     case 'INIT':
       return payload;
 
-    case 'FETCH':
-      console.log(payload);
+    case 'FILTER':
       return state;
 
     default:

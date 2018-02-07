@@ -122,7 +122,7 @@ let mapStateToProps = (state) => ({
 })
 
 let mapDispatchToProps = (dispatch) => ({
-  filter: (prefernces) => dispatch(filterToilets(prefernces)),
+  filter: (preferences) => dispatch(filterToilets(preferences)),
 })
 
 

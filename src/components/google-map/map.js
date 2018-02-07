@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react'
+import FilterForm from './filter-form';
 import * as toilets from './actions'
 
 class MapContainer extends React.Component {
@@ -73,6 +74,10 @@ class MapContainer extends React.Component {
         {this.loadMarkers()}
 
         </Map>
+
+        <br/>
+
+        <FilterForm />
 
       </div>
     )
