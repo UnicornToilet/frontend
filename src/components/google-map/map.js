@@ -13,7 +13,7 @@ class GoogleMap extends React.Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
-    }
+    };
 
     this.loadMarkers = this.loadMarkers.bind(this);
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
@@ -40,20 +40,29 @@ class GoogleMap extends React.Component {
       }
     }
 
-    handleMarkerClick(props, marker, e) {
+  handleMapClick(props) {
+    if (this.state.showingInfoWindow) {
       this.setState({
-        selectedPlace: props,
-        activeMarker: marker,
-        showingInfoWindow: true
+        showingInfoWindow: false,
+        activeMarker: null,
       });
     }
+  }
+
+  handleMarkerClick(props, marker, e) {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true,
+    });
+  }
 
   render() {
     const style = {
       width: '100%',
       height: '60%',
-      margin: '5em 0'
-    }
+      margin: '5em 0',
+    };
 
     return(
       <Map 
@@ -76,13 +85,9 @@ class GoogleMap extends React.Component {
       </Map>
     )
   }
-};
+}
 
 export default GoogleApiWrapper({
   apiKey: __GOOGLE_KEY__,
 })(GoogleMap);
 
-
-
-// take state and dispatch outta the filterform. pass it in. form submit should hide the form / show map again
-// pull in Kyle's form 
