@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 import React from 'react';
+import {connect} from 'react-redux';
 import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react';
-=======
-import React from 'react'
-import {connect} from 'react-redux'
-import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react'
-import * as toilets from './actions'
->>>>>>> dev
+import * as toilets from './actions';
 
 class MapContainer extends React.Component {
   constructor(props) {
@@ -84,21 +79,15 @@ class MapContainer extends React.Component {
   }
 }
 
-<<<<<<< HEAD
-export default GoogleApiWrapper({
-  apiKey: process.env.__GOOGLE_KEY__,
-})(MapContainer);
-=======
 
 let mapStateToProps = (state) => ({
   toilets: state.toilets,
-})
+});
 
 let mapDispatchToProps = (dispatch) => ({
   initMap: () => dispatch(toilets.getToilets()),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleApiWrapper({
   apiKey: __GOOGLE_KEY__,
 })(MapContainer));
->>>>>>> dev

@@ -8,6 +8,12 @@ export const getToilets = () => dispatch => {
     .catch(console.error);
 };
 
+export const addToilet = () => dispatch => {
+  superagent.post(mockAPI)
+    .then(res => dispatch(initAction(res.body)))
+    .catch(console.error);
+};
+
 const initAction = (toilets) => ({
   type: 'INIT',
   payload: toilets,
