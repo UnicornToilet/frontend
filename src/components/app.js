@@ -19,11 +19,7 @@ class App extends React.Component {
             <React.Fragment>
 
                 <Header appTitle="Unicorn Toilet" />
-                <Auth>
-                  <AddToilet />
-                </Auth>
-
-
+            
                 <main>
                     <Route exact path='/' component={Map} />
                 </main>

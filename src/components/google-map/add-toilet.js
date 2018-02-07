@@ -15,19 +15,18 @@ class AddToilet extends React.Component{
     this.state = emptyState;
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handlChange = this.handlChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e){
     let {name, value} = e.target;
-    console.log(e.target);
     this.setState({name:value});
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.addToilet(this.state);
-    this.setState(emptyState);
+    // this.props.addToilet(this.state);
+    // this.setState(emptyState);
   }
 
   render(){
