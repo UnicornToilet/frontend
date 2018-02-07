@@ -1,14 +1,17 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react'
-import FilterForm from './filter-form';
+import FilterForm from './filter-form'
 import * as toilets from './actions'
+import {renderIf} from '../../lib/__';
 
 class MapContainer extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      showFilter: false,
+      showMap: true,
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
@@ -17,6 +20,7 @@ class MapContainer extends React.Component {
     this.loadMarkers = this.loadMarkers.bind(this);
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.handleMapClick = this.handleMapClick.bind(this);
+    this.handleFormClick = this.handleFormClick.bind(this);
   }
 
     loadMarkers() {
@@ -47,6 +51,10 @@ class MapContainer extends React.Component {
       });
     }
 
+    handleFormClick(e){
+      this.state.showFilter ? this.setState({showFilter:false, showMap:true}) : this.setState({showFilter:true, showMap:false});
+    }
+
   render() {
     const style = {
       width: '100%',
@@ -56,6 +64,10 @@ class MapContainer extends React.Component {
 
     return(
       <div className='map-container'>
+
+        <button onClick={this.handleFormClick}> edit filters </button>
+        
+        {renderIf(this.state.showMap, 
         <Map 
           onClick={this.handleMapClick}
           onReady={this.props.initMap}
@@ -74,10 +86,12 @@ class MapContainer extends React.Component {
         {this.loadMarkers()}
 
         </Map>
+        )}
 
         <br/>
-
-        <FilterForm />
+        
+        {renderIf(this.state.showFilter, <FilterForm />)}
+        
 
       </div>
     )
