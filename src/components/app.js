@@ -9,6 +9,7 @@ import Footer from './footer';
 import Map from '../components/google-map/map.js';
 import FilterForm from '../components/google-map/filter-form.js';
 import AddToilet from '../components/google-map/add-toilet.js';
+import Auth from './auth/index.js';
 
 class App extends React.Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class App extends React.Component {
             <React.Fragment>
 
                 <Header appTitle="Unicorn Toilet" />
+                <Auth />
 
                 <AddToilet />
 
