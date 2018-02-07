@@ -21,7 +21,9 @@ class App extends React.Component {
             <React.Fragment>
 
                 <Header appTitle="Unicorn Toilet" />
-                <Auth />
+                <Auth>
+                  <AddToilet />
+                </Auth>
 
 
                 <main>
