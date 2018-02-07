@@ -8,7 +8,7 @@ const emptyState = {
   occupancy: null,
   soap: null,
   drying: null,
-  babyChanging: null
+  babyChanging: null,
 };
 
 class FilterForm extends React.Component {
@@ -113,9 +113,9 @@ class FilterForm extends React.Component {
           <br/>
       <button type='submit'> submit </button>
       </form>
-    )
+    );
   }
 }
 
-
 export default FilterForm;
+

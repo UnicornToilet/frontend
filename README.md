@@ -5,14 +5,14 @@ UNICORN TOILET
 
 ## Landing Page
 #### Google Map Container
-Features available to veryone (no login needed)
+Features available to everyone (no login needed)
   * All toilets near you render onto page
-  * Ability to filter maps 
+  * Ability to filter maps
   * Option to login or signup
-  
+
 Features available only if logged in
   * Ability to add a new toilet
-  * Ability to haved saved preferences and preloaded filters 
+  * Ability to have saved preferences and preloaded filters
 
 #### Add Toilet Form
 New Toilet Form Includes:
@@ -28,14 +28,14 @@ New Toilet Form Includes:
 Filter Options Include:
   * Minimum Overall Quality
   * Minimum TP Quality
-  * Occupany
+  * Occupancy
   * Soap Type
   * Drying Method
-  * Baby Changing 
+  * Baby Changing
 
 #### Login / Signup Page
-  * Login 
+  * Login
   * Signup
 
 ## About Page
-  * About the creators 
+  * About the creators

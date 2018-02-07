@@ -1,8 +1,8 @@
 import '../style/main.scss';
 
 import React from 'react';
-import {Switch, Route} from 'react-router-dom'
-import {connect} from 'react-redux'
+import {Switch, Route} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import Header from './header'
 import Footer from './footer'
@@ -19,7 +19,7 @@ class App extends React.Component {
             <React.Fragment>
 
                 <Header appTitle="Unicorn Toilet" />
-
+            
                 <main>
                     <Route exact path='/' component={Map} />
                 </main>
