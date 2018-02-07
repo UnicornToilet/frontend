@@ -23,7 +23,7 @@ class App extends React.Component {
                 <Header appTitle="Unicorn Toilet" />
                 <Auth />
 
-                <AddToilet />
+                //<AddToilet />
 
                 <main>
                     <Route exact path='/' component={Map} />
