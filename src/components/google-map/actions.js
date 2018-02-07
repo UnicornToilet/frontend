@@ -14,6 +14,11 @@ export const addToilet = () => dispatch => {
     .catch(console.error);
 };
 
+export const filterToilets = (preferences) => ({
+  type: 'FILTER',
+  payload: preferences
+});
+
 const initAction = (toilets) => ({
   type: 'INIT',
   payload: toilets,

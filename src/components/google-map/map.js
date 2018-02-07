@@ -1,9 +1,11 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react';
-import * as toilets from './actions';
+import React from 'react'
+import {connect} from 'react-redux'
+import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react'
+import FilterForm from './filter-form'
+import * as toilets from './actions'
+import {renderIf} from '../../lib/__';
 
-class MapContainer extends React.Component {
+class GoogleMap extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,16 +20,25 @@ class MapContainer extends React.Component {
     this.handleMapClick = this.handleMapClick.bind(this);
   }
 
-  loadMarkers() {
-    return Object.keys(this.props.toilets).map((toilet,i) => (
-      <Marker
-        key={i}
-        onClick={this.handleMarkerClick}
-        name={this.props.toilets[toilet].locationName}
-        position={this.props.toilets[toilet].location}
-      />
-    ));
-  }
+    loadMarkers() {
+      // return Object.keys(this.props.toilets).map((toilet,i) => (
+      //   <Marker
+      //     key={i}
+      //     onClick={this.handleMarkerClick}
+      //     name={this.props.toilets[toilet].locationName}
+      //     position={this.props.toilets[toilet].location}
+      //   />
+      // ))
+    }
+
+    handleMapClick(props) {
+      if (this.state.showingInfoWindow) {
+        this.setState({
+          showingInfoWindow: false,
+          activeMarker: null
+        })
+      }
+    }
 
   handleMapClick(props) {
     if (this.state.showingInfoWindow) {
@@ -54,40 +65,29 @@ class MapContainer extends React.Component {
     };
 
     return(
-      <div className='map-container'>
-        <Map
-          onClick={this.handleMapClick}
-          onReady={this.props.initMap}
-          google={this.props.google}
-          initialCenter={{lat: 47.6182477, lng: -122.35406}}
-          style={style}
-          zoom={15}
-        >
-
-          <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}>
+      <Map 
+        onClick={this.handleMapClick}
+        onReady={this.props.actions.initMap}
+        google={this.props.google}
+        initialCenter={{lat: 47.6182477, lng: -122.35406}}
+        style={style}
+        zoom={15}
+      >
+  
+      <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}>
             <p> {this.state.selectedPlace.name} </p>
-          </InfoWindow>
-
-          {this.loadMarkers()}
-
-        </Map>
-
-      </div>
-    );
+      </InfoWindow>
+  
+      {this.loadMarkers()}
+  
+      </Map>
+    )
   }
 }
 
-
-let mapStateToProps = (state) => ({
-  toilets: state.toilets,
-});
-
-let mapDispatchToProps = (dispatch) => ({
-  initMap: () => dispatch(toilets.getToilets()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(GoogleApiWrapper({
+export default GoogleApiWrapper({
   apiKey: __GOOGLE_KEY__,
-})(MapContainer));
+})(GoogleMap);
+
