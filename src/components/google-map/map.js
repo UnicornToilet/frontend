@@ -68,31 +68,30 @@ class MapContainer extends React.Component {
         <button onClick={this.handleFormClick}> edit filters </button>
         
         {renderIf(this.state.showMap, 
-        <Map 
-          onClick={this.handleMapClick}
-          onReady={this.props.initMap}
-          google={this.props.google}
-          initialCenter={{lat: 47.6182477, lng: -122.35406}}
-          style={style}
-          zoom={15}
-        >
+          <Map 
+            onClick={this.handleMapClick}
+            onReady={this.props.initMap}
+            google={this.props.google}
+            initialCenter={{lat: 47.6182477, lng: -122.35406}}
+            style={style}
+            zoom={15}
+          >
 
-        <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}>
-              <p> {this.state.selectedPlace.name} </p>
-        </InfoWindow>
+          <InfoWindow
+              marker={this.state.activeMarker}
+              visible={this.state.showingInfoWindow}>
+                <p> {this.state.selectedPlace.name} </p>
+          </InfoWindow>
 
-        {this.loadMarkers()}
+          {this.loadMarkers()}
 
-        </Map>
+          </Map>
         )}
 
         <br/>
         
         {renderIf(this.state.showFilter, <FilterForm />)}
         
-
       </div>
     )
   }

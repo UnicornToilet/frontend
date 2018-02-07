@@ -15,5 +15,5 @@ export const filterToilets = (preferences) => ({
 
 const initAction = (toilets) => ({
   type: 'INIT',
-  payload: toilets
+  payload: toilets,
 })
