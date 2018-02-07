@@ -31,7 +31,7 @@ class FilterForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     console.log(this.state);
-    this.props.filter(this.state);
+    this.props.actions.filter(this.state);
   }
 
   render(){
@@ -117,13 +117,5 @@ class FilterForm extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => ({
-  toilets: state.toilets,
-})
 
-let mapDispatchToProps = (dispatch) => ({
-  filter: (preferences) => dispatch(filterToilets(preferences)),
-})
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(FilterForm);
+export default FilterForm;

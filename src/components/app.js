@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 
 import Header from './header'
 import Footer from './footer'
-import Map from '../components/google-map/map.js'
+import Map from '../components/google-map/index.js'
 import FilterForm from '../components/google-map/filter-form.js'
 
 class App extends React.Component {

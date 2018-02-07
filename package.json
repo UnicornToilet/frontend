@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest -i --verbose",
     "watch": "webpack-dev-server --inline --hot",
+    "work": "webpack-dev-server --inline --hot --public $C9_HOSTNAME --host $IP --port $PORT",
     "build": "webpack"
   },
   "jest": {
