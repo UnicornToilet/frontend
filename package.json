@@ -1,14 +1,27 @@
 {
   "name": "unicorn-toilet",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest -i --verbose",
     "watch": "webpack-dev-server --inline --hot",
     "work": "webpack-dev-server --inline --hot --public $C9_HOSTNAME --host $IP --port $PORT",
-    "build": "webpack"
+    "build": "webpack",
+    "heroku-postbuild": "webpack",
+    "start": "node index.js"
+
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnicornToilet/frontend.git"
+  },
+  "author": "Ashkaan Jaberi, Joel Epstein, Kyle Richey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UnicornToilet/frontend/issues"
+  },
+  "homepage": "https://github.com/UnicornToilet/frontend#readme",
   "jest": {
     "setupFiles": [
       "<rootDir>/src/__test__/shim.js",
@@ -18,9 +31,10 @@
       "\\.(scss)$": "<rootDir>/node_modules/jest-css-modules"
     }
   },
+  "engines": {
+    "node": "6.11.3"
+  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -30,9 +44,12 @@
     "css-loader": "^0.28.7",
     "dotenv": "^4.0.0",
     "enzyme-adapter-react-16": "^1.1.0",
+    "eslint": "^4.17.0",
+    "eslint-plugin-react": "^7.6.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "google-maps-react": "^1.1.2",
     "html-webpack-plugin": "^2.30.1",
+    "morgan": "^1.9.0",
     "node-sass": "^4.7.2",
     "react": "^16.2.0",
     "react-cookies": "^0.1.0",
