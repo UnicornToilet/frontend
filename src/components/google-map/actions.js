@@ -9,7 +9,8 @@ export const getToilets = () => dispatch => {
 };
 
 export const addToilet = (data) => dispatch => {
-  geoCode(data);
+  geoCode(data)
+    .then(console.log);
 };
 
 export const filterToilets = (preferences) => ({
@@ -23,7 +24,7 @@ const initAction = (toilets) => ({
 });
 
 const geoCode = (data) => {
-  superagent.get('https://maps.googleapis.com/maps/api/geocode/json')
+  return superagent.get('https://maps.googleapis.com/maps/api/geocode/json')
     .query({address: data.locationName})
     .query({key: __GOOGLE_KEY__})
     .then(res => {
@@ -31,16 +32,5 @@ const geoCode = (data) => {
       data.location = coords;
       return data;
     })
-    .then(console.log)
-    .catch(console.log)
+    .catch(console.log);
 }
-
-
-// axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
-//   params:{
-//     address:this.location,
-//     key: 'AIzaSyByLJF7mtLoXCiyAiB0M6quGWfVERGhoZU',
-//   }
-// })
-// .then(function(res){
-//   var coords = res.data.results[0].geometry.location;
