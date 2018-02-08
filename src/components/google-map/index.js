@@ -60,6 +60,7 @@ class MapContainer extends React.Component{
         
         {renderIf(this.state.showAddToilet, 
           <AddToilet 
+            actions={this.props.actions} 
             handleSubmit={this.handleSubmit}
           />
         )}
@@ -77,6 +78,7 @@ let mapDispatchToProps = (dispatch) => ({
   actions: {
     initMap: () => dispatch(toilets.getToilets()),
     filter: (preferences) => dispatch(toilets.filterToilets(preferences)),
+    addToilet: (data) => dispatch(toilets.addToilet(data)),
   }
 })
 
