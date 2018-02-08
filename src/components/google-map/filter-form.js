@@ -30,8 +30,8 @@ class FilterForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    console.log(this.state);
     this.props.actions.filter(this.state);
+    this.props.handleSubmit('showFilter');
   }
 
   render(){

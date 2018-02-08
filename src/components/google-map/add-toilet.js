@@ -18,6 +18,8 @@ class AddToilet extends React.Component{
     this.handleChange = this.handleChange.bind(this);
   }
 
+  
+
   handleChange(e){
     let {name, value} = e.target;
     this.setState({name:value});
@@ -25,14 +27,15 @@ class AddToilet extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    // this.props.addToilet(this.state);
+    this.props.actions.addToilet(this.state);
+    // this.props.handleSubmit('showAddToilets');
     // this.setState(emptyState);
   }
 
   render(){
     return (
       <div>
-        <form className='addToilet-form'>
+        <form className='addToilet-form' onSubmit={this.handleSubmit}>
 
           <input type="text" id='toiletLocation' name='locationName' />
 
@@ -74,7 +77,7 @@ class AddToilet extends React.Component{
           <input type='radio' id='noBaby' name='babyChanging' value='doesntHaveBaby'/>
           <label htmlFor='noBaby'>False</label>
 
-          <button type='submit' onSubmit={this.handleSubmit}>Flush!</button>
+          <button type='submit'>Flush!</button>
         </form>
       </div>
     );

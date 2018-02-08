@@ -19,10 +19,15 @@ class MapContainer extends React.Component{
     }
     
     this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
+  handleSubmit(form) {
+    this.setState({[form]:false, showMap:true})
+  }
+
   handleButtonClick(e){
-    let {name} = e.target;
+    let {name} = e.target; 
     this.state[name] ? this.setState({[name]:false, showMap:true}) : this.setState({[name]:true, showMap:false});
   }
 
@@ -30,8 +35,13 @@ class MapContainer extends React.Component{
     return (
       <React.Fragment>
         
-        <button onClick={this.handleButtonClick} name='showFilter'> edit filters </button>
-        <button onClick={this.handleButtonClick} name='showAddToilet'> add toilet </button>
+        {renderIf(!this.state.showAddToilet,
+          <button onClick={this.handleButtonClick} name='showFilter'> edit filters </button>
+        )}
+        
+        {renderIf(!this.state.showFilter,
+          <button onClick={this.handleButtonClick} name='showAddToilet'> add toilet </button>
+        )}
       
         {renderIf(this.state.showMap, 
           <GoogleMap 
@@ -42,13 +52,17 @@ class MapContainer extends React.Component{
         
         {renderIf(this.state.showFilter, 
           <FilterForm 
-          actions={this.props.actions} 
+            actions={this.props.actions} 
+            handleSubmit={this.handleSubmit}
           />
         )}
         
         
         {renderIf(this.state.showAddToilet, 
-          <AddToilet />
+          <AddToilet 
+            actions={this.props.actions} 
+            handleSubmit={this.handleSubmit}
+          />
         )}
         
       </React.Fragment>
@@ -64,6 +78,7 @@ let mapDispatchToProps = (dispatch) => ({
   actions: {
     initMap: () => dispatch(toilets.getToilets()),
     filter: (preferences) => dispatch(toilets.filterToilets(preferences)),
+    addToilet: (data) => dispatch(toilets.addToilet(data)),
   }
 })
 
