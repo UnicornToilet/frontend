@@ -2,11 +2,11 @@ const initialState = {};
 
 export default (state=initialState, {type,payload}) => {
   switch(type) {
-    case 'INIT':
+    case 'FETCH':
       return payload;
 
     case 'FILTER':
-      return state;
+      return payload;
 
     default:
       return state;
