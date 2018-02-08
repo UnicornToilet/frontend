@@ -23,9 +23,11 @@ const initAction = (toilets) => ({
 });
 
 const geoCode = (data) => {
+  console.log(data.locationName);
+  console.log(__GOOGLE_KEY__);
   superagent.get('https://maps.googleapis.com/maps/api/geocode/json')
-    .set(address: data.locationName)
-    .set(key: __GOOLE_KEY__)
+    .set({'address': data.locationName})
+    .set({'key': __GOOGLE_KEY__})
     .then(console.log)
     .catch(console.err)
 }
