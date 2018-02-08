@@ -21,14 +21,14 @@ class GoogleMap extends React.Component {
   }
 
     loadMarkers() {
-      // return Object.keys(this.props.toilets).map((toilet,i) => (
-      //   <Marker
-      //     key={i}
-      //     onClick={this.handleMarkerClick}
-      //     name={this.props.toilets[toilet].locationName}
-      //     position={this.props.toilets[toilet].location}
-      //   />
-      // ))
+      return Object.keys(this.props.toilets).map((toilet,i) => (
+        <Marker
+          key={i}
+          onClick={this.handleMarkerClick}
+          name={this.props.toilets[toilet].locationName}
+          position={this.props.toilets[toilet].location}
+        />
+      ))
     }
 
     handleMapClick(props) {

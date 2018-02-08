@@ -25,6 +25,7 @@ class AddToilet extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
+    this.props.handleSubmit('showAddToilets');
     // this.props.addToilet(this.state);
     // this.setState(emptyState);
   }

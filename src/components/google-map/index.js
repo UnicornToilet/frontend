@@ -19,9 +19,14 @@ class MapContainer extends React.Component{
     }
     
     this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
-  handleButtonClick(e, form){
+
+  handleSubmit(form) {
+    this.setState({[form]:false, showMap:true})
+  }
+
+  handleButtonClick(e){
     let {name} = e.target; 
     this.state[name] ? this.setState({[name]:false, showMap:true}) : this.setState({[name]:true, showMap:false});
   }
@@ -48,12 +53,15 @@ class MapContainer extends React.Component{
         {renderIf(this.state.showFilter, 
           <FilterForm 
             actions={this.props.actions} 
+            handleSubmit={this.handleSubmit}
           />
         )}
         
         
         {renderIf(this.state.showAddToilet, 
-          <AddToilet />
+          <AddToilet 
+            handleSubmit={this.handleSubmit}
+          />
         )}
         
       </React.Fragment>
