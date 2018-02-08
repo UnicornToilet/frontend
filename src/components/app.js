@@ -4,10 +4,11 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import Header from './header'
-import Footer from './footer'
-import Map from '../components/google-map/index.js'
-import FilterForm from '../components/google-map/filter-form.js'
+import Header from './header';
+import Footer from './footer';
+import Map from '../components/google-map/index.js';
+import FilterForm from '../components/google-map/filter-form.js';
+import Auth from '../components/auth/index.js';
 
 class App extends React.Component {
     constructor(props) {
@@ -19,7 +20,12 @@ class App extends React.Component {
             <React.Fragment>
 
                 <Header appTitle="Unicorn Toilet" />
-            
+
+                <Auth allowLogin='true'>
+                  <h1>Hi</h1>
+                </Auth>
+
+
                 <main>
                     <Route exact path='/' component={Map} />
                 </main>

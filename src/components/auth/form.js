@@ -34,6 +34,8 @@ class AuthForm extends React.Component {
     e.preventDefault();
     let {username, password, email} = this.state;
 
+    console.log(this.props);
+
     let handler = this.state.action === 'signup' ? this.props.handleCreate : this.props.handleLogin;
 
     handler({username, password, email})
