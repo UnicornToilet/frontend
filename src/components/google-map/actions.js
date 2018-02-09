@@ -21,10 +21,10 @@ export const addToilet = (data) => dispatch => {
       toilet = JSON.stringify(toilet);
       return superagent.post('http://localhost:3000/addToilet').set('Content-Type', 'application/json').send(toilet)
     })
-    .then(toilet => dispatch(addToiletAction(toilet))) 
-    .then(console.log)
+    .then(res => dispatch(addToiletAction(res.body))) 
     .catch(console.log)
 };
+
 const addToiletAction = (toilet) => ({
   type: 'ADD',
   payload: toilet
