@@ -5,6 +5,9 @@ export default (state=initialState, {type,payload}) => {
     case 'FETCH':
       return payload;
 
+    case 'ADD':
+      return {...state, payload};
+
     case 'FILTER':
       return payload;
 

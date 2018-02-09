@@ -1,6 +1,7 @@
 import React from 'react';
 
 const emptyState = {
+  locationName:'',
   overallQuality: 0,
   tpQuality: 0,
   occupancy: '',

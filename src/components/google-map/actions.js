@@ -1,26 +1,34 @@
 import superagent from 'superagent';
 
-let mockAPI = 'http://localhost:3000/toilets';
+let mockAPI = 'http://localhost:3000/toilet';
 
 export const getToilets = (prefs) => dispatch => {
   if(prefs === null){
-    superagent.get(mockAPI)  // /toilet route
+    superagent.get(mockAPI)
       .then(res => dispatch(fetchToilets(res.body)))
-      .catch(console.error);
+      .catch(err => console.log(err.message));
   }
+}
   
-  superagent.post(mockAPI).send(prefs)  // /toilet route
-    .then(res => dispatch(fetchToilets(res.body)))
-    .catch(console.error);
-
-};
+//   superagent.post(mockAPI).send(prefs)  // /toilet route
+//     .then(res => dispatch(fetchToilets(res.body)))
+//     .catch(console.error);
+// };
 
 export const addToilet = (data) => dispatch => {
   geoCode(data)
-    .then(toilet => superagent.post(mockAPI).send(toilet)) // /addToilet route
-    .then(toilets => dispatch(fetchToilets(toilets))) //toilets will be updated toilets - send to reducer to update state
+    .then(toilet => {
+      toilet = JSON.stringify(toilet);
+      return superagent.post('http://localhost:3000/addToilet').set('Content-Type', 'application/json').send(toilet)
+    })
+    .then(toilet => dispatch(addToiletAction(toilet))) 
+    .then(console.log)
     .catch(console.log)
 };
+const addToiletAction = (toilet) => ({
+  type: 'ADD',
+  payload: toilet
+})
 
 const fetchToilets = (toilets) => ({
   type: 'FETCH',
