@@ -7,17 +7,18 @@ import AddToilet from './add-toilet';
 
 import * as toilets from './actions';
 import {renderIf} from '../../lib/__';
+import Auth from '../../components/auth/index.js';
 
 class MapContainer extends React.Component{
   constructor(props){
     super(props);
-    
+
     this.state = {
       showFilter: false,
       showMap: true,
       showAddToilet: false,
     }
-    
+
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -27,44 +28,46 @@ class MapContainer extends React.Component{
   }
 
   handleButtonClick(e){
-    let {name} = e.target; 
+    let {name} = e.target;
     this.state[name] ? this.setState({[name]:false, showMap:true}) : this.setState({[name]:true, showMap:false});
   }
 
   render() {
     return (
       <React.Fragment>
-        
+
         {renderIf(!this.state.showAddToilet,
           <button onClick={this.handleButtonClick} name='showFilter'> edit filters </button>
         )}
-        
-        {renderIf(!this.state.showFilter,
-          <button onClick={this.handleButtonClick} name='showAddToilet'> add toilet </button>
-        )}
-      
-        {renderIf(this.state.showMap, 
-          <GoogleMap 
+
+        <Auth>
+          {renderIf(!this.state.showFilter,
+            <button onClick={this.handleButtonClick} name='showAddToilet'> add toilet </button>
+          )}
+        </Auth>
+
+        {renderIf(this.state.showMap,
+          <GoogleMap
             toilets={this.props.toilets}
             actions={this.props.actions}
           />
         )}
-        
-        {renderIf(this.state.showFilter, 
-          <FilterForm 
-            actions={this.props.actions} 
+
+        {renderIf(this.state.showFilter,
+          <FilterForm
+            actions={this.props.actions}
             handleSubmit={this.handleSubmit}
           />
         )}
-        
-        
-        {renderIf(this.state.showAddToilet, 
-          <AddToilet 
-            actions={this.props.actions} 
+
+
+        {renderIf(this.state.showAddToilet,
+          <AddToilet
+            actions={this.props.actions}
             handleSubmit={this.handleSubmit}
           />
         )}
-        
+
       </React.Fragment>
     )
   }

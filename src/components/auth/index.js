@@ -16,7 +16,7 @@ class Auth extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+
     let form = this.props.allowLogin
       ? <AuthForm handleCreate={this.props.authCreate} handleLogin={this.props.authLogin} />
       : null;
