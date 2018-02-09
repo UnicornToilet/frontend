@@ -7,8 +7,7 @@ const emptyState = {
   occupancy: '',
   soap: '',
   drying: '',
-  babyChanging: '',
-  genderNeutral: '',
+  babyChanging: ''
 };
 
 class AddToilet extends React.Component{
@@ -106,15 +105,6 @@ class AddToilet extends React.Component{
             <input type='radio' id='both' name='drying' value='both' onChange={this.handleChange}/>
             <label htmlFor='both'> Both </label>      
 
-          <br/>
-          
-          <h2> Gender Neutral Friendly </h2>
-            <input type='radio' id='genderYes' name='genderNeutral' value='true' onChange={this.handleChange}/>
-            <label htmlFor='genderYes'> yes </label>
-  
-            <input type='radio' id='genderEither' name='genderNeutral' value='false' onChange={this.handleChange}/>
-            <label htmlFor='genderEither'> no </label>    
-            
           <br/>
 
           <h2> Baby Changing Station </h2>

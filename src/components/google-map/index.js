@@ -76,8 +76,8 @@ let mapStateToProps = (state) => ({
 
 let mapDispatchToProps = (dispatch) => ({
   actions: {
-    getToilets: (prefs) => dispatch(toilets.getToilets(prefs)),
-    filter: (prefs) => dispatch(toilets.filterToilets(prefs)),
+    getToilets: () => dispatch(toilets.getToilets()),
+    filterToilets: (prefs) => dispatch(toilets.filterToilets(prefs)),
     addToilet: (data) => dispatch(toilets.addToilet(data)),
   }
 })
