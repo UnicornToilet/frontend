@@ -2,7 +2,7 @@ import superagent from 'superagent';
 
 export const getToilets = (prefs) => dispatch => {
   if(prefs === null){
-    superagent.get(process.env.API_URL + '/toilet')
+    superagent.get(__API_URL__ + '/toilet')
       .then(res => dispatch(fetchToilets(res.body)))
       .catch(err => console.log(err.message));
   }
@@ -17,7 +17,7 @@ export const addToilet = (data) => dispatch => {
   geoCode(data)
     .then(toilet => {
       toilet = JSON.stringify(toilet);
-      return superagent.post(process.env.API_URL, +'/addToilet').set('Content-Type', 'application/json').send(toilet)
+      return superagent.post(__API_URL__ +'/addToilet').set('Content-Type', 'application/json').send(toilet)
     })
     .then(res => dispatch(addToiletAction(res.body))) 
     .catch(console.log)
