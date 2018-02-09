@@ -13,6 +13,7 @@ class GoogleMap extends React.Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
+      activeToilet:{},
     };
 
     this.initialize = this.initialize.bind(this);
@@ -21,12 +22,16 @@ class GoogleMap extends React.Component {
     this.handleMapClick = this.handleMapClick.bind(this);
   }
 
+    componentDidMount(){
+      this.initialize();
+    }
+
     componentWillReceiveProps(props){
       this.loadMarkers();
     }
   
     initialize(){
-      this.props.actions.getToilets(null);
+      this.props.actions.getToilets();
     }
 
     loadMarkers() {
@@ -64,6 +69,15 @@ class GoogleMap extends React.Component {
       activeMarker: marker,
       showingInfoWindow: true,
     });
+
+    let {toilets} = this.props;
+    for(let toilet in toilets){
+      if(toilets[toilet].locationName === this.state.selectedPlace.name) {
+        this.setState({
+          activeToilet: toilets[toilet]
+        })
+      }
+    }
   }
 
   render() {
@@ -76,7 +90,7 @@ class GoogleMap extends React.Component {
     return(
       <Map 
         onClick={this.handleMapClick}
-        onReady={this.initialize}
+        // onReady={this.initialize}
         google={this.props.google}
         initialCenter={{lat: 47.6182477, lng: -122.35406}}
         style={style}
@@ -86,7 +100,14 @@ class GoogleMap extends React.Component {
       <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
-            <p> {this.state.selectedPlace.name} </p>
+            <div>
+              <h3> {this.state.activeToilet.locationName} </h3>
+              <p> {'Overall Quality: ' + this.state.activeToilet.overallQuality}</p>
+              <p> {'Toilet Paper Quality: ' + this.state.activeToilet.tpQuality}</p>
+              <p> {'Soap Type: ' + this.state.activeToilet.soap}</p>
+              <p> {'Hand Drying Method: ' + this.state.activeToilet.drying}</p>
+              <p> {'Baby Changing: ' + this.state.activeToilet.babyChanging}</p>
+            </div>
       </InfoWindow>
   
       {this.loadMarkers()}

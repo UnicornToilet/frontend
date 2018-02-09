@@ -1,17 +1,19 @@
 import superagent from 'superagent';
 
-export const getToilets = (prefs) => dispatch => {
-  if(prefs === null){
-    superagent.get(__API_URL__ + '/toilet')
-      .then(res => dispatch(fetchToilets(res.body)))
-      .catch(err => console.log(err.message));
-  }
+export const getToilets = () => dispatch => {
+  superagent.get(__API_URL__ + '/toilet')
+    .then(res => dispatch(fetchToilets(res.body)))
+    .catch(err => console.log(err.message));
 }
-  
-//   superagent.post(mockAPI).send(prefs)  // /toilet route
-//     .then(res => dispatch(fetchToilets(res.body)))
-//     .catch(console.error);
-// };
+
+export const filterToilets = (prefs) => dispatch => {
+  superagent.post(__API_URL__ + '/toilet').set('Content-Type', 'application/json').send(prefs)  
+    .then(res => {
+      console.log('poop', res.body)
+      dispatch(filterToiletAction(res.body))
+    })
+    .catch(console.error);
+}
 
 export const addToilet = (data) => dispatch => {
   geoCode(data)
@@ -27,6 +29,12 @@ const addToiletAction = (toilet) => ({
   type: 'ADD',
   payload: toilet
 })
+
+const filterToiletAction = (toilet) => ({
+  type: 'FILTER',
+  payload: toilet
+})
+
 
 const fetchToilets = (toilets) => ({
   type: 'FETCH',

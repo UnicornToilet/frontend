@@ -8,8 +8,7 @@ const emptyState = {
   occupancy: '',
   soap: '',
   drying: '',
-  babyChanging: '',
-  genderNeutral: '',
+  babyChanging: ''
 };
 
 class FilterForm extends React.Component {
@@ -31,8 +30,7 @@ class FilterForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    console.log(this.state);
-    this.props.actions.getToilets(this.state);
+    this.props.actions.filterToilets(this.state);
     this.props.handleSubmit('showFilter');
   }
 
@@ -100,16 +98,7 @@ class FilterForm extends React.Component {
   
             <input type='radio' id='airDry' name='drying' value='air dry' onChange={this.handleChange}/>
             <label htmlFor='airDry'> Air Dry </label>
-
-          <br/>
-          
-          <h2> Gender Neutral Friendly </h2>
-            <input type='radio' id='genderYes' name='genderNeutral' value='true' onChange={this.handleChange}/>
-            <label htmlFor='genderYes'> yes </label>
-  
-            <input type='radio' id='genderEither' name='genderNeutral' value='false' onChange={this.handleChange}/>
-            <label htmlFor='genderEither'> no </label>    
-            
+             
           <br/>
 
           <h2> Baby Changing Station </h2>
