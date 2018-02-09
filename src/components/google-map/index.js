@@ -17,14 +17,14 @@ class MapContainer extends React.Component{
       showFilter: false,
       showMap: true,
       showAddToilet: false,
-    }
+    };
 
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(form) {
-    this.setState({[form]:false, showMap:true})
+    this.setState({[form]:false, showMap:true});
   }
 
   handleButtonClick(e){
@@ -69,20 +69,20 @@ class MapContainer extends React.Component{
         )}
 
       </React.Fragment>
-    )
+    );
   }
 }
 
 let mapStateToProps = (state) => ({
   toilets: state.toilets,
-})
+});
 
 let mapDispatchToProps = (dispatch) => ({
   actions: {
     getToilets: () => dispatch(toilets.getToilets()),
     filterToilets: (prefs) => dispatch(toilets.filterToilets(prefs)),
     addToilet: (data) => dispatch(toilets.addToilet(data)),
-  }
-})
+  },
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(MapContainer);

@@ -1,8 +1,8 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react'
-import FilterForm from './filter-form'
-import * as toilets from './actions'
+import React from 'react';
+import {connect} from 'react-redux';
+import {Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react';
+import FilterForm from './filter-form';
+import * as toilets from './actions';
 import {renderIf} from '../../lib/__';
 
 class GoogleMap extends React.Component {
@@ -22,37 +22,28 @@ class GoogleMap extends React.Component {
     this.handleMapClick = this.handleMapClick.bind(this);
   }
 
-    componentDidMount(){
-      this.initialize();
-    }
+  componentDidMount(){
+    this.initialize();
+  }
 
-    componentWillReceiveProps(props){
-      this.loadMarkers();
-    }
-  
-    initialize(){
-      this.props.actions.getToilets();
-    }
+  componentWillReceiveProps(props){
+    this.loadMarkers();
+  }
 
-    loadMarkers() {
-      return Object.keys(this.props.toilets).map((toilet,i) => (
-        <Marker
-          key={i}
-          onClick={this.handleMarkerClick}
-          name={this.props.toilets[toilet].locationName}
-          position={this.props.toilets[toilet].location}
-        />
-      ))
-    }
+  initialize(){
+    this.props.actions.getToilets();
+  }
 
-    handleMapClick(props) {
-      if (this.state.showingInfoWindow) {
-        this.setState({
-          showingInfoWindow: false,
-          activeMarker: null
-        })
-      }
-    }
+  loadMarkers() {
+    return Object.keys(this.props.toilets).map((toilet,i) => (
+      <Marker
+        key={i}
+        onClick={this.handleMarkerClick}
+        name={this.props.toilets[toilet].locationName}
+        position={this.props.toilets[toilet].location}
+      />
+    ));
+  }
 
   handleMapClick(props) {
     if (this.state.showingInfoWindow) {
@@ -74,8 +65,8 @@ class GoogleMap extends React.Component {
     for(let toilet in toilets){
       if(toilets[toilet].locationName === this.state.selectedPlace.name) {
         this.setState({
-          activeToilet: toilets[toilet]
-        })
+          activeToilet: toilets[toilet],
+        });
       }
     }
   }
@@ -88,7 +79,7 @@ class GoogleMap extends React.Component {
     };
 
     return(
-      <Map 
+      <Map
         onClick={this.handleMapClick}
         // onReady={this.initialize}
         google={this.props.google}
@@ -96,28 +87,27 @@ class GoogleMap extends React.Component {
         style={style}
         zoom={15}
       >
-  
-      <InfoWindow
+
+        <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
-            <div>
-              <h3> {this.state.activeToilet.locationName} </h3>
-              <p> {'Overall Quality: ' + this.state.activeToilet.overallQuality}</p>
-              <p> {'Toilet Paper Quality: ' + this.state.activeToilet.tpQuality}</p>
-              <p> {'Soap Type: ' + this.state.activeToilet.soap}</p>
-              <p> {'Hand Drying Method: ' + this.state.activeToilet.drying}</p>
-              <p> {'Baby Changing: ' + this.state.activeToilet.babyChanging}</p>
-            </div>
-      </InfoWindow>
-  
-      {this.loadMarkers()}
-  
+          <div>
+            <h3> {this.state.activeToilet.locationName} </h3>
+            <p> {'Overall Quality: ' + this.state.activeToilet.overallQuality}</p>
+            <p> {'Toilet Paper Quality: ' + this.state.activeToilet.tpQuality}</p>
+            <p> {'Soap Type: ' + this.state.activeToilet.soap}</p>
+            <p> {'Hand Drying Method: ' + this.state.activeToilet.drying}</p>
+            <p> {'Baby Changing: ' + this.state.activeToilet.babyChanging}</p>
+          </div>
+        </InfoWindow>
+
+        {this.loadMarkers()}
+
       </Map>
-    )
+    );
   }
 }
 
 export default GoogleApiWrapper({
   apiKey: __GOOGLE_KEY__,
 })(GoogleMap);
-
