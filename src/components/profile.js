@@ -4,16 +4,15 @@ import Auth from './auth';
 
 class Profile extends React.Component {
 
-    render() {
+  render() {
 
-        return (
-            <Auth allowLogin="true">
-                Welcome
-            </Auth>
-        )
-
-    }
-
+    return (
+      <React.Fragment>
+        <Auth allowLogin="true">
+          <h1>Welcome</h1>
+        </Auth>
+      </React.Fragment>
+    );
+  }
 }
-
 export default Profile;

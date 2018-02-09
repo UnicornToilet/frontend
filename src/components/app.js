@@ -11,28 +11,27 @@ import FilterForm from '../components/google-map/filter-form.js';
 import Auth from '../components/auth/index.js';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return (
-            <React.Fragment>
+  render() {
+    return (
+      <React.Fragment>
 
-                <Header appTitle="Unicorn Toilet" />
+        <Header appTitle="Unicorn Toilet" />
 
-                <Auth allowLogin='true'>
-                  <h1>Hi</h1>
-                </Auth>
+        <Auth allowLogin='true'>
+          <p>Logged In</p>
+        </Auth>
 
+        <main>
+          <Route exact path='/' component={Map} />
+        </main>
 
-                <main>
-                    <Route exact path='/' component={Map} />
-                </main>
-
-            </React.Fragment>
-        )
-    }
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
