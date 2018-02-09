@@ -20,6 +20,10 @@ class GoogleMap extends React.Component {
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.handleMapClick = this.handleMapClick.bind(this);
   }
+
+    componentWillReceiveProps(props){
+      this.loadMarkers();
+    }
   
     initialize(){
       this.props.actions.getToilets(null);
