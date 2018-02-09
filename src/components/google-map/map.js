@@ -15,20 +15,25 @@ class GoogleMap extends React.Component {
       selectedPlace: {},
     };
 
+    this.initialize = this.initialize.bind(this);
     this.loadMarkers = this.loadMarkers.bind(this);
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.handleMapClick = this.handleMapClick.bind(this);
   }
+  
+    initialize(){
+      this.props.actions.getToilets(null);
+    }
 
     loadMarkers() {
-      // return Object.keys(this.props.toilets).map((toilet,i) => (
-      //   <Marker
-      //     key={i}
-      //     onClick={this.handleMarkerClick}
-      //     name={this.props.toilets[toilet].locationName}
-      //     position={this.props.toilets[toilet].location}
-      //   />
-      // ))
+      return Object.keys(this.props.toilets).map((toilet,i) => (
+        <Marker
+          key={i}
+          onClick={this.handleMarkerClick}
+          name={this.props.toilets[toilet].locationName}
+          position={this.props.toilets[toilet].location}
+        />
+      ))
     }
 
     handleMapClick(props) {
@@ -67,7 +72,7 @@ class GoogleMap extends React.Component {
     return(
       <Map 
         onClick={this.handleMapClick}
-        onReady={this.props.actions.initMap}
+        onReady={this.initialize}
         google={this.props.google}
         initialCenter={{lat: 47.6182477, lng: -122.35406}}
         style={style}
