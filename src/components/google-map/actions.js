@@ -1,10 +1,8 @@
 import superagent from 'superagent';
 
-let mockAPI = 'http://localhost:3000/toilet';
-
 export const getToilets = (prefs) => dispatch => {
   if(prefs === null){
-    superagent.get(mockAPI)
+    superagent.get(process.env.API_URL + '/toilet')
       .then(res => dispatch(fetchToilets(res.body)))
       .catch(err => console.log(err.message));
   }
@@ -19,7 +17,7 @@ export const addToilet = (data) => dispatch => {
   geoCode(data)
     .then(toilet => {
       toilet = JSON.stringify(toilet);
-      return superagent.post('http://localhost:3000/addToilet').set('Content-Type', 'application/json').send(toilet)
+      return superagent.post(process.env.API_URL, +'/addToilet').set('Content-Type', 'application/json').send(toilet)
     })
     .then(res => dispatch(addToiletAction(res.body))) 
     .catch(console.log)
