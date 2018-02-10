@@ -56,6 +56,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
       // If it's a .scss file
       // {
       //     test: /\.scss$/,
@@ -72,13 +76,7 @@ module.exports = {
                 sourceMap:true,
               },
             },
-            // If it's a .scss file
-             {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"]
-            //     test: /\.scss$/,
-            //     loader : 'style-loader!css-loader!sass-loader'
-             },
+            'resolve-url-loader',
             {
               loader: 'sass-loader',
               options: {
