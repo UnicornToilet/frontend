@@ -69,6 +69,7 @@ class GoogleMap extends React.Component {
         });
       }
     }
+    console.log(this.state.activeToilet)
   }
 
   render() {
