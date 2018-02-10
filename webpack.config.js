@@ -72,7 +72,13 @@ module.exports = {
                 sourceMap:true,
               },
             },
-            'resolve-url-loader',
+            // If it's a .scss file
+             {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            //     test: /\.scss$/,
+            //     loader : 'style-loader!css-loader!sass-loader'
+             },
             {
               loader: 'sass-loader',
               options: {

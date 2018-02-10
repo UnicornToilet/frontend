@@ -14,7 +14,7 @@ class Profile extends React.Component {
   constructor(props){
     super(props);
     this.state = emptyState;
-
+    
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -132,6 +132,7 @@ class Profile extends React.Component {
           <br/>
           <button type='submit'>Save Prefrences</button>
         </form>
+      
       </React.Fragment>
     );
   }
