@@ -4,29 +4,39 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import Header from './header'
-import Footer from './footer'
-import Map from '../components/google-map/index.js'
-import FilterForm from '../components/google-map/filter-form.js'
+import Header from './header';
+import Footer from './footer';
+import Map from '../components/google-map/index.js';
+import FilterForm from '../components/google-map/filter-form.js';
+import Auth from '../components/auth/index.js';
+import Profile from './profile';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return (
-            <React.Fragment>
+  render() {
+    return (
+      <React.Fragment>
 
-                <Header appTitle="Unicorn Toilet" />
-            
-                <main>
-                    <Route exact path='/' component={Map} />
-                </main>
+        <Header appTitle="Unicorn Toilet" />
 
-            </React.Fragment>
-        )
-    }
+        <Auth allowLogin='true'>
+          <Route exact path='/profile' component={Profile} />
+        </Auth>
+
+        <Auth>
+          <button><a href="/profile">Profile</a></button>
+        </Auth>
+
+        <main>
+          <Route exact path='/' component={Map} />
+        </main>
+
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
