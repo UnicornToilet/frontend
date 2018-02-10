@@ -1,5 +1,5 @@
 
-let defaultState = null;
+let defaultState = false;
 
 export default (state=defaultState,action) => {
 
@@ -8,14 +8,13 @@ export default (state=defaultState,action) => {
   switch(type) {
 
   case 'SET_AUTH_TOKEN':
-    return payload;
+    return true;
 
   case 'DELETE_AUTH_TOKEN':
-    return defaultState;
+    return false;
 
   default:
     return state;
-
   }
 
 };

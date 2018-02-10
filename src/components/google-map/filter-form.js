@@ -3,12 +3,11 @@ import {connect} from 'react-redux';
 import {filterToilets} from './actions';
 
 const emptyState = {
+  owner: null,
   overallQuality: 0,
   tpQuality: 0,
-  occupancy: '',
   soap: '',
   drying: '',
-  babyChanging: '',
 };
 
 class FilterForm extends React.Component {
@@ -72,4 +71,3 @@ class FilterForm extends React.Component {
 }
 
 export default FilterForm;
-
