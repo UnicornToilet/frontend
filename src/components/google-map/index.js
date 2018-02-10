@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'reactstrap';
 import GoogleMap from './map';
 import FilterForm from './filter-form';
 import AddToilet from './add-toilet';
@@ -37,12 +38,12 @@ class MapContainer extends React.Component{
       <React.Fragment>
 
         {renderIf(!this.state.showAddToilet,
-          <button onClick={this.handleButtonClick} name='showFilter'> edit filters </button>
+          <button type="button" className="btn btn-outline-primary" onClick={this.handleButtonClick} name='showFilter'> Edit Filters </button>
         )}
 
         <Auth>
           {renderIf(!this.state.showFilter,
-            <button onClick={this.handleButtonClick} name='showAddToilet'> add toilet </button>
+            <button type="button" className="btn btn-outline-primary" onClick={this.handleButtonClick} name='showAddToilet'> Add Toilet </button>
           )}
         </Auth>
 
