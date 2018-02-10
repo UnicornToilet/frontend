@@ -1,12 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {renderIf} from '../../lib/__';
-<<<<<<< HEAD
-// import './stye.scss';
-=======
 import './style.scss';
 
->>>>>>> fe61f063e6db4888f2971351d5feb5d0b9bb8605
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
@@ -43,10 +39,6 @@ class AuthForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-<<<<<<< HEAD
-=======
-
->>>>>>> fe61f063e6db4888f2971351d5feb5d0b9bb8605
     let handler = e.target.dataset.handler === 'signup' ? this.props.handleCreate : this.props.handleLogin;
     
     handler(this.state)
@@ -56,11 +48,7 @@ class AuthForm extends React.Component {
   render() {
     let username =
                 <label htmlFor="username">
-<<<<<<< HEAD
-                  <span>Username</span>
-=======
                   <span>username:</span>
->>>>>>> fe61f063e6db4888f2971351d5feb5d0b9bb8605
                   <input
                     type="text"
                     name="username"
@@ -70,16 +58,10 @@ class AuthForm extends React.Component {
                     onChange={this.handleChange}
                   />
                 </label>;
-<<<<<<< HEAD
-    let password =
-                <label htmlFor="password">
-                  <span>Password</span>
-=======
 
     let password =
                 <label htmlFor="password">
                   <span>password:</span>
->>>>>>> fe61f063e6db4888f2971351d5feb5d0b9bb8605
                   <input
                     type="password"
                     name="password"
@@ -89,39 +71,6 @@ class AuthForm extends React.Component {
                     onChange={this.handleChange}
                   />
                 </label>;
-<<<<<<< HEAD
-    return (
-      <div className="loginFormContainer">
-        <form onSubmit={this.handleSubmit} data-handler="login" className="auth-form">
-          <h2>Login</h2>
-          {username}
-          {password}
-          <button type="submit">Login</button>
-        </form>
-        <form onSubmit={this.handleSubmit} data-handler="signup" className="auth-form">
-          <h2>Signup</h2>
-          <label htmlFor="email">
-            <span>Email Address</span>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="email"
-              value={this.state.email}
-              required="true"
-              onChange={this.handleChange}
-            />
-          </label>
-          {username}
-          {password}
-          <button type="submit">Create Account</button>
-        </form>
-      </div>
-    );
-  }
-}
-export default AuthForm;
-=======
 
     return (
       <React.Fragment>
@@ -177,4 +126,3 @@ const mapStateToProps = (state) => ({
   auth:state.auth,
 });
 export default connect(mapStateToProps)(AuthForm);
->>>>>>> fe61f063e6db4888f2971351d5feb5d0b9bb8605
