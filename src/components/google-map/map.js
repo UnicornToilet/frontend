@@ -86,7 +86,7 @@ class GoogleMap extends React.Component {
         google={this.props.google}
         initialCenter={{lat: 47.6182477, lng: -122.35406}}
         style={style}
-        zoom={15}
+        zoom={16}
       >
 
         <InfoWindow
