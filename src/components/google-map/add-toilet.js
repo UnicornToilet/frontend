@@ -37,7 +37,7 @@ class AddToilet extends React.Component{
         <h1></h1>
         <form className='form-inline' onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <input type="text" className="form-control" id='locationName' placeholder="Location Name" onChange={this.handleChange} value={this.state.locationName}/>
+            <input type="text" className="form-control" id='locationName' name='locationName' placeholder="Location Name" onChange={this.handleChange} value={this.state.locationName}/>
           </div>
           <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
             <option selected>Overall Quality</option>
