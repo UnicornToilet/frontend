@@ -1,17 +1,11 @@
 'use strict';
-
 require('dotenv').config();
-
 // Dynamic Script and Style Tags
 const HTMLPlugin = require('html-webpack-plugin');
-
 // Makes a separate CSS bundle
 const ExtractPlugin = require('extract-text-webpack-plugin');
-
 const {EnvironmentPlugin, DefinePlugin} = require('webpack');
-
 let production = process.env.NODE_ENV === 'production';
-
 let plugins = [
   new HTMLPlugin({
     template: `${__dirname}/src/index.html`,
@@ -27,27 +21,20 @@ let plugins = [
     '__DEBUG__': JSON.stringify(! production),
   }),
 ];
-
 module.exports = {
-
   plugins,
-
   // Load this and everythning it cares about
   entry: `${__dirname}/src/main.js`,
-
   devServer: {
     historyApiFallback:true,
   },
-
   devtool: 'source-map',
-
   // Stick it into the "path" folder with that file name
   output: {
     filename: 'bundle.[hash].js',
     path: `${__dirname}/build`,
     publicPath: process.env.CDN_URL,
   },
-
   module: {
     rules: [
       // If it's a .js file not in node_modules, use the babel-loader
@@ -87,8 +74,10 @@ module.exports = {
           ],
         }),
       },
-
     ],
   },
+<<<<<<< HEAD
 
+=======
+>>>>>>> fe61f063e6db4888f2971351d5feb5d0b9bb8605
 };

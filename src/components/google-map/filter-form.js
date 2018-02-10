@@ -35,6 +35,7 @@ class FilterForm extends React.Component {
 
   render(){
     return (
+
       <form className='form-inline' onSubmit={this.handleSubmit}>
         <label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">Preferences</label>
         <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
@@ -64,7 +65,12 @@ class FilterForm extends React.Component {
           <option id='airDry' name='drying' value='air dry' onChange={this.handleChange}>Air</option>
         </select>
 
+<<<<<<< HEAD
         <button type="submit" className="btn btn-primary my-1">Submit</button>
+=======
+        <button type="submit" class="btn btn-primary my-1">Submit</button>
+
+>>>>>>> fe61f063e6db4888f2971351d5feb5d0b9bb8605
       </form>
     );
   }
