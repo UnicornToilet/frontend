@@ -57,10 +57,12 @@ module.exports = {
                 loader: 'babel-loader'
             },
             // If it's a .scss file
-            // {
+             {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
             //     test: /\.scss$/,
             //     loader : 'style-loader!css-loader!sass-loader'
-            // },
+             },
             {
                 test: /\.scss$/,
                 loader: ExtractPlugin.extract({
