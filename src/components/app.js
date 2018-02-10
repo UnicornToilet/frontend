@@ -23,7 +23,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
 
-        {/* <Header appTitle="Unicorn Toilet" /> */}
+        <Navbar />
 
         <Auth allowLogin='true'>
           <Route exact path='/profile' component={Profile} />
