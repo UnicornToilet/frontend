@@ -6,11 +6,22 @@
   "scripts": {
     "test": "jest -i --verbose",
     "watch": "webpack-dev-server --inline --hot",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "build": "webpack",
+    "heroku-postbuild": "webpack",
+    "start": "node index.js"
+=======
+    "work": "webpack-dev-server --inline --hot --public $C9_HOSTNAME --host $IP --port $PORT",
+    "build": "webpack"
+>>>>>>> ashkaan
+=======
     "work": "webpack-dev-server --inline --hot --public $C9_HOSTNAME --host $IP --port $PORT",
     "build": "webpack",
     "heroku-postbuild": "webpack",
     "start": "node index.js"
 
+>>>>>>> dev
   },
   "repository": {
     "type": "git",
