@@ -1,25 +1,36 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {renderIf} from '../../lib/__';
+import './style.scss';
 
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      showLogin: false,
+      showSignup:false,
       username: '',
       password: '',
       email: '',
       error: null,
-      action: 'login',
     };
 
-    this.handleCreate = this.handleCreate.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.showLogin = this.showLogin.bind(this);
+    this.showSignup = this.showSignup.bind(this);
   }
 
-  handleCreate(e) {
+  showLogin(e){
     e.preventDefault();
-    this.setState({action:'signup'});
+    let newState = !this.state.showLogin;
+    this.setState({showLogin: newState});
+  }
+
+  showSignup(e){
+    e.preventDefault();
+    let newState = !this.state.showSignup;
+    this.setState({showSignup: newState});
   }
 
   handleChange(e) {
@@ -32,71 +43,92 @@ class AuthForm extends React.Component {
   handleSubmit(e) {
 
     e.preventDefault();
-    let {username, password, email} = this.state;
 
-    let handler = this.state.action === 'signup' ? this.props.handleCreate : this.props.handleLogin;
-
-    handler({username, password, email})
-      .then(() => {
-        this.setState({username: '', email: '', password: ''});
-      })
-      .catch(error => {
-        console.error(error);
-        this.setState({error});
-      });
+    let handler = e.target.dataset.handler === 'signup' ? this.props.handleCreate : this.props.handleLogin;
+    
+    handler(this.state)
+      .then()
+      .catch(console.error);
   }
 
   render() {
+    let username =
+                <label htmlFor="username">
+                  <span>username:</span>
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder="username"
+                    value={this.state.username}
+                    required="true"
+                    onChange={this.handleChange}
+                  />
+                </label>;
+
+    let password =
+                <label htmlFor="password">
+                  <span>password:</span>
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    value={this.state.password}
+                    required="true"
+                    onChange={this.handleChange}
+                  />
+                </label>;
+
     return (
-      <form
-        onSubmit={this.handleSubmit}
-        className="auth-form">
+      <React.Fragment>
 
-        <div className="error">{this.state.error}</div>
+        <button onClick={this.showLogin} type="submit" className="btn btn-primary my-1">Login</button>
+        <button onClick={this.showSignup} type="submit" className="btn btn-primary my-1">Signup</button>
 
-        {
+        <div className="loginFormContainer">
+          {renderIf(this.state.showLogin,
+            <form onSubmit={this.handleSubmit} data-handler="login" className="auth-form">
+              <h2>Login</h2>
 
-          renderIf(
-            this.state.action === 'login',
-            <div><a href="#" onClick={this.handleCreate}>New User? Create Your Account</a></div>
-          )
+              {username}
+              {password}
 
-        }
+              <button type="submit" className="btn btn-primary my-1">Login</button>
 
-        {
-          renderIf(
-            this.state.action === 'signup',
-            <input
-              type="email"
-              name="email"
-              placeholder="email"
-              value={this.state.email}
-              required="true"
-              onChange={this.handleChange}/>
-          )
-        }
+            </form>
+          )}
 
-        <input
-          type="text"
-          name="username"
-          placeholder="username"
-          value={this.state.username}
-          required="true"
-          onChange={this.handleChange}/>
+          {renderIf(this.state.showSignup,
+            <form onSubmit={this.handleSubmit} data-handler="signup" className="auth-form">
+              <h2 id='josh'>Signup</h2>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          value={this.state.password}
-          required="true"
-          onChange={this.handleChange}/>
+              <label htmlFor="email">
+                <span>email:</span>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="email"
+                  value={this.state.email}
+                  required="true"
+                  onChange={this.handleChange}
+                />
+              </label>
 
-        <button type="submit">{this.state.action}</button>
+              {username}
 
-      </form>
+              {password}
+
+              <button type="submit" className="btn btn-primary my-1">Create Account</button>
+            </form>
+          )}
+
+        </div>
+      </React.Fragment>
     );
   }
 }
 
-export default AuthForm;
+const mapStateToProps = (state) => ({
+  auth:state.auth,
+});
+export default connect(mapStateToProps)(AuthForm);
