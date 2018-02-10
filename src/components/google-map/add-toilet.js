@@ -34,7 +34,41 @@ class AddToilet extends React.Component{
   render(){
     return (
       <div>
-        <form className='addToilet-form' onSubmit={this.handleSubmit}>
+        <h1></h1>
+        <form className='form-inline' onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <input type="text" className="form-control" id='locationName' placeholder="Location Name" onChange={this.handleChange} value={this.state.locationName}/>
+          </div>
+          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <option selected>Overall Quality</option>
+            <option id='overallQuality1' name='overallQuality' value='1' onChange={this.handleChange}>One</option>
+            <option id='overallQuality2' name='overallQuality' value='2' onChange={this.handleChange}>Two</option>
+            <option id='overallQuality3' name='overallQuality' value='3' onChange={this.handleChange}>Three</option>
+            <option id='overallQuality4' name='overallQuality' value='4' onChange={this.handleChange}>Four</option>
+            <option id='overallQuality5' name='overallQuality' value='5' onChange={this.handleChange}>Five</option>
+          </select>
+          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <option selected>Toilet Paper Quality</option>
+            <option id='tpQuality1' name='tpQUality' value='1' onChange={this.handleChange}>One</option>
+            <option id='tpQuality2' name='tpQUality' value='2' onChange={this.handleChange}>Two</option>
+            <option id='tpQuality3' name='tpQUality' value='3' onChange={this.handleChange}>Three</option>
+            <option id='tpQuality4' name='tpQUality' value='4' onChange={this.handleChange}>Four</option>
+            <option id='tpQuality5' name='tpQUality' value='5' onChange={this.handleChange}>Five</option>
+          </select>
+          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <option selected>Soap Type</option>
+            <option id='gel' name='soap' value='gel' onChange={this.handleChange}>Gel</option>
+            <option id='foam' name='soap' value='foam' onChange={this.handleChange}>Foam</option>
+          </select>
+          <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <option selected>Drying Method</option>
+            <option id='paperTowel' name='drying' value='paper towel' onChange={this.handleChange}>Paper Towel</option>
+            <option id='airDry' name='drying' value='air dry' onChange={this.handleChange}>Air</option>
+          </select>
+
+          <button type="submit" className="btn btn-primary my-1">Submit</button>
+        </form>
+        {/* <form className='addToilet-form' onSubmit={this.handleSubmit}>
 
           <h2> Toilet Location </h2>
           <input type="text" name='locationName' onChange={this.handleChange} value={this.state.locationName}/>
@@ -97,7 +131,7 @@ class AddToilet extends React.Component{
           <br/>
 
           <button type='submit'> submit </button>
-        </form>
+        </form> */}
       </div>
     );
   }
