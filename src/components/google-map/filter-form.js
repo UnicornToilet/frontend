@@ -38,7 +38,7 @@ class FilterForm extends React.Component {
 
       <form className='form-inline' onSubmit={this.handleSubmit}>
         <label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">Preferences</label>
-        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name='overallQuality' onChange={this.handleChange}>
           <option selected>Overall Quality</option>
           <option id='overallQuality1' name='overallQuality' value='1' onChange={this.handleChange}>One</option>
           <option id='overallQuality2' name='overallQuality' value='2' onChange={this.handleChange}>Two</option>
@@ -46,7 +46,7 @@ class FilterForm extends React.Component {
           <option id='overallQuality4' name='overallQuality' value='4' onChange={this.handleChange}>Four</option>
           <option id='overallQuality5' name='overallQuality' value='5' onChange={this.handleChange}>Five</option>
         </select>
-        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name='tpQuality' onChange={this.handleChange}>
           <option selected>Toilet Paper Quality</option>
           <option id='tpQuality1' name='tpQUality' value='1' onChange={this.handleChange}>One</option>
           <option id='tpQuality2' name='tpQUality' value='2' onChange={this.handleChange}>Two</option>
@@ -54,12 +54,12 @@ class FilterForm extends React.Component {
           <option id='tpQuality4' name='tpQUality' value='4' onChange={this.handleChange}>Four</option>
           <option id='tpQuality5' name='tpQUality' value='5' onChange={this.handleChange}>Five</option>
         </select>
-        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name='soap' onChange={this.handleChange}>
           <option selected>Soap Type</option>
           <option id='gel' name='soap' value='gel' onChange={this.handleChange}>Gel</option>
           <option id='foam' name='soap' value='foam' onChange={this.handleChange}>Foam</option>
         </select>
-        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+        <select className="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name='drying' onChange={this.handleChange}>
           <option selected>Drying Method</option>
           <option id='paperTowel' name='drying' value='paper towel' onChange={this.handleChange}>Paper Towel</option>
           <option id='airDry' name='drying' value='air dry' onChange={this.handleChange}>Air</option>
