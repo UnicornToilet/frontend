@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {filterToilets} from './actions';
 
 const emptyState = {
+  owner: null,
   overallQuality: 0,
   tpQuality: 0,
   occupancy: '',
