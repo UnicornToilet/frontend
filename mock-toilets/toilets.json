@@ -7,7 +7,6 @@
       "tpQuality":"2",
       "usage":"Pay",
       "occupancy":"",
-      "genderNeutral":"",
       "soap":"Gel",
       "drying":"Paper Towel & Air Dry",
       "comments":""
@@ -19,7 +18,6 @@
       "tpQuality":"2",
       "usage":"Free",
       "occupancy":"",
-      "genderNeutral":"",
       "soap":"Gel",
       "drying":"Paper Towel",
       "comments":""
@@ -31,7 +29,6 @@
       "tpQuality":"1",
       "usage":"Free",
       "occupancy":"Single",
-      "genderNeutral":"Yes",
       "soap":"None",
       "drying":"None",
       "comments":"It's a porta potty..."
@@ -43,7 +40,6 @@
       "tpQuality":"2",
       "usage":"Pay",
       "occupancy":"",
-      "genderNeutral":"",
       "soap":"Gel",
       "drying":"Paper Towel",
       "comments":""
