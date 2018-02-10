@@ -4,10 +4,8 @@ const emptyState = {
   locationName:'',
   overallQuality: 0,
   tpQuality: 0,
-  occupancy: '',
   soap: '',
   drying: '',
-  babyChanging: '',
 };
 
 class AddToilet extends React.Component{
@@ -62,7 +60,7 @@ class AddToilet extends React.Component{
           <h2> TP Quality </h2>
           <input type='radio' id='tpQuality1' name='tpQUality' value='1' onChange={this.handleChange}/>
           <label htmlFor='tpQuality1'> 1 </label>
-
+      
           <input type='radio' id='tpQuality2' name='tpQUality' value='2' onChange={this.handleChange}/>
           <label htmlFor='tpQuality2'> 2 </label>
 
@@ -74,15 +72,6 @@ class AddToilet extends React.Component{
 
           <input type='radio' id='tpQuality5' name='tpQUality' value='5'onChange={this.handleChange}/>
           <label htmlFor='tpQuality5'> 5 </label>
-
-          <br/>
-
-          <h2> Occupancy </h2>
-          <input type='radio' id='single' name='occupancy' value='single' onChange={this.handleChange}/>
-          <label htmlFor='single'> single </label>
-
-          <input type='radio' id='multiple' name='occupancy' value='multiple' onChange={this.handleChange}/>
-          <label htmlFor='multiple'> multiple </label>
 
           <br/>
 
@@ -107,14 +96,6 @@ class AddToilet extends React.Component{
 
           <br/>
 
-          <h2> Baby Changing Station </h2>
-          <input type='radio' id='yes' name='babyChanging' value='true' onChange={this.handleChange}/>
-          <label htmlFor='yes'> yes </label>
-
-          <input type='radio' id='no' name='babyChanging' value='false' onChange={this.handleChange}/>
-          <label htmlFor='no'> no </label>
-
-          <br/>
           <button type='submit'> submit </button>
         </form>
       </div>

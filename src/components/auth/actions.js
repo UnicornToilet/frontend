@@ -3,7 +3,7 @@ import cookie from 'react-cookies';
 
 export const authLogin = (user={}) => dispatch => {
 
-  let token = cookie.load('auth');
+  let token = cookie.load('Unicorn-Token');
   if ( token ) {
     dispatch(setToken(token));
     return;
