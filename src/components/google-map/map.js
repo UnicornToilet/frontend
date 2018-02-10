@@ -98,7 +98,6 @@ class GoogleMap extends React.Component {
             <p> {'Toilet Paper Quality: ' + this.state.activeToilet.tpQuality}</p>
             <p> {'Soap Type: ' + this.state.activeToilet.soap}</p>
             <p> {'Hand Drying Method: ' + this.state.activeToilet.drying}</p>
-            <p> {'Baby Changing: ' + this.state.activeToilet.babyChanging}</p>
           </div>
         </InfoWindow>
 

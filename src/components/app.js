@@ -17,6 +17,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('app', this.props);
     return (
       <React.Fragment>
 
@@ -26,9 +27,9 @@ class App extends React.Component {
           <Route exact path='/profile' component={Profile} />
         </Auth>
 
-        <Auth>
+        {/* <Auth>
           <button><a href="/profile">Profile</a></button>
-        </Auth>
+        </Auth> */}
 
         <main>
           <Route exact path='/' component={Map} />

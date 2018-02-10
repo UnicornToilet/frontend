@@ -6,10 +6,8 @@ const emptyState = {
   owner: null,
   overallQuality: 0,
   tpQuality: 0,
-  occupancy: '',
   soap: '',
   drying: '',
-  babyChanging: '',
 };
 
 class FilterForm extends React.Component {
@@ -75,15 +73,6 @@ class FilterForm extends React.Component {
 
         <br/>
 
-        <h2> Occupancy </h2>
-        <input type='radio' id='single' name='occupancy' value='single' onChange={this.handleChange}/>
-        <label htmlFor='single'> single </label>
-
-        <input type='radio' id='multiple' name='occupancy' value='multiple' onChange={this.handleChange}/>
-        <label htmlFor='multiple'> multiple </label>
-
-        <br/>
-
         <h2> Soap Type </h2>
         <input type='radio' id='gel' name='soap' value='gel' onChange={this.handleChange}/>
         <label htmlFor='gel'> gel </label>
@@ -99,15 +88,6 @@ class FilterForm extends React.Component {
 
         <input type='radio' id='airDry' name='drying' value='air dry' onChange={this.handleChange}/>
         <label htmlFor='airDry'> Air Dry </label>
-
-        <br/>
-
-        <h2> Baby Changing Station </h2>
-        <input type='radio' id='yes' name='babyChanging' value='true' onChange={this.handleChange}/>
-        <label htmlFor='yes'> yes </label>
-
-        <input type='radio' id='no' name='babyChanging' value='false' onChange={this.handleChange}/>
-        <label htmlFor='no'> no </label>
 
         <br/>
         <button type='submit'> submit </button>
