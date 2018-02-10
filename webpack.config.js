@@ -1,17 +1,11 @@
 'use strict';
-
 require('dotenv').config();
-
 // Dynamic Script and Style Tags
 const HTMLPlugin = require('html-webpack-plugin');
-
 // Makes a separate CSS bundle
 const ExtractPlugin = require('extract-text-webpack-plugin');
-
 const {EnvironmentPlugin, DefinePlugin} = require('webpack');
-
 let production = process.env.NODE_ENV === 'production';
-
 let plugins = [
   new HTMLPlugin({
     template: `${__dirname}/src/index.html`,
@@ -27,27 +21,20 @@ let plugins = [
     '__DEBUG__': JSON.stringify(! production),
   }),
 ];
-
 module.exports = {
-
   plugins,
-
   // Load this and everythning it cares about
   entry: `${__dirname}/src/main.js`,
-
   devServer: {
     historyApiFallback:true,
   },
-
   devtool: 'source-map',
-
   // Stick it into the "path" folder with that file name
   output: {
     filename: 'bundle.[hash].js',
     path: `${__dirname}/build`,
     publicPath: process.env.CDN_URL,
   },
-
   module: {
     rules: [
       // If it's a .js file not in node_modules, use the babel-loader
@@ -55,6 +42,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       },
       // If it's a .scss file
       // {
@@ -72,13 +63,7 @@ module.exports = {
                 sourceMap:true,
               },
             },
-            // If it's a .scss file
-             {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"]
-            //     test: /\.scss$/,
-            //     loader : 'style-loader!css-loader!sass-loader'
-             },
+            'resolve-url-loader',
             {
               loader: 'sass-loader',
               options: {
@@ -89,8 +74,6 @@ module.exports = {
           ],
         }),
       },
-
     ],
   },
-
 };
