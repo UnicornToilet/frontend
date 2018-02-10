@@ -17,20 +17,20 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('app', this.props);
     return (
       <React.Fragment>
 
         <Header appTitle="Unicorn Toilet" />
 
         <Auth allowLogin='true'>
+
           <Route exact path='/profile' component={Profile} />
         </Auth>
 
         {/* <Auth>
           <button><a href="/profile">Profile</a></button>
         </Auth> */}
-
+      
         <main>
           <Route exact path='/' component={Map} />
         </main>

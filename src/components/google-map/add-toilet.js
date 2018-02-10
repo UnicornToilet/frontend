@@ -60,7 +60,7 @@ class AddToilet extends React.Component{
           <h2> TP Quality </h2>
           <input type='radio' id='tpQuality1' name='tpQUality' value='1' onChange={this.handleChange}/>
           <label htmlFor='tpQuality1'> 1 </label>
-
+      
           <input type='radio' id='tpQuality2' name='tpQUality' value='2' onChange={this.handleChange}/>
           <label htmlFor='tpQuality2'> 2 </label>
 

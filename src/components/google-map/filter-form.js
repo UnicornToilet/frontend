@@ -90,6 +90,7 @@ class FilterForm extends React.Component {
         <label htmlFor='airDry'> Air Dry </label>
 
         <br/>
+
         <button type='submit'> submit </button>
       </form>
     );
