@@ -58,18 +58,18 @@
     "react-dom": "^16.2.0",
     "react-fontawesome": "^1.6.1",
     "react-form": "^2.16.1",
-    "react-redux": "^5.0.6",
+    "react-redux": "^7.1.1",
     "react-router-dom": "^4.2.2",
     "reactstrap": "^5.0.0-beta",
-    "redux": "^3.7.2",
+    "redux": "^4.0.4",
     "resolve-url-loader": "^2.2.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "superagent": "^3.8.1",
     "url-loader": "^0.6.2",
     "uuid": "^3.1.0",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.11.5"
+    "webpack": "^4.39.3",
+    "webpack-dev-server": "^3.8.0"
   },
   "devDependencies": {
     "babel-jest": "^25.0.0",
